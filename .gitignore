@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+.pytest_cache
+videos
+downloads
+screenshots
+mochawesome-report
+reports
+
+cucumber-json-formatter
+cucumber-json-formatter.exe
+
+readmeConsole.md
