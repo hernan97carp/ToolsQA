@@ -4,9 +4,9 @@ run-name: ${{github.actor}}👨🏻‍🔬 triggered Regression in ${{github.ref
 
 on:
   push:
-    branches:
-    - QA
-
+     branches: [QA]
+  pull_request: 
+     branches: [main]
 jobs:
   RegressionTesting:
     runs-on: windows-latest
