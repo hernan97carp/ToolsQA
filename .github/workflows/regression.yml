@@ -20,11 +20,17 @@ jobs:
       with:
         node-version: 20
 
-
     - name: 🧬Install All Dependencies
       run: |
         npm install
         npm list
+
+    - name: ▶ Active Prettier 
+      run: |
+       npx prettier --write cypress
+    - name: ✅ Check All files use Prettier code style!
+      run: |
+       npx prettier --check
 
     - name: 🧪Cypress E2E Regression Test on chrome
       uses: cypress-io/github-action@v4

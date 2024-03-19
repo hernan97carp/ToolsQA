@@ -3,8 +3,8 @@ import { faker } from '@faker-js/faker';
 // Test Suite
 describe('Challenge Elements', () => {
 	beforeEach(() => {
-cy.toolsQaSession()
-	})
+		cy.toolsQaSession();
+	});
 	it('TEXTBOX - TC1: Should submit form with valid credentials', () => {
 		cy.visit('/text-box');
 		//todo: ARRANGE (preparación y declaración)
