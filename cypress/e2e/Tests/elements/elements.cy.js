@@ -2,19 +2,22 @@ import { faker } from '@faker-js/faker';
 
 // Test Suite
 describe('Challenge Elements', () => {
+	beforeEach(() => {
+cy.toolsQaSession()
+	})
 	it('TEXTBOX - TC1: Should submit form with valid credentials', () => {
 		cy.visit('/text-box');
 		//todo: ARRANGE (preparación y declaración)
 		const fullName = faker.name.fullName();
 		const email = faker.internet.email();
 		const currentAddress = faker.address.streetAddress();
-		const permaAddress = faker.address.country();
+		const permanentAddress = faker.address.country();
 
 		//todo: ACT (Acción y ejecución de métodos)
 		cy.get('input#userName').type(fullName);
 		cy.get('input#userEmail').type(email);
 		cy.get('textarea#currentAddress').type(currentAddress);
-		cy.get('textarea#permanentAddress').type(permaAddress);
+		cy.get('textarea#permanentAddress').type(permanentAddress);
 
 		cy.get('#submit').click();
 
@@ -22,7 +25,7 @@ describe('Challenge Elements', () => {
 		cy.get('p#name').should('contain.text', fullName);
 		cy.get('p#email').should('contain.text', email);
 		cy.get('p#currentAddress').should('contain.text', currentAddress);
-		cy.get('p#permanentAddress').should('contain.text', permaAddress);
+		cy.get('p#permanentAddress').should('contain.text', permanentAddress);
 	});
 
 	it('CHECKBOX - TC2: Should check and display the labels', () => {
@@ -94,7 +97,6 @@ describe('Challenge Elements', () => {
 
 	it('BUTTONS - TC4: Should be clickable', () => {
 		cy.visit('/buttons');
-
 		cy.contains('Double Click Me').dblclick();
 		cy.contains('Right Click Me').rightclick();
 		cy.get('button.btn:not([id$=Btn])').click();
@@ -122,7 +124,6 @@ describe('Challenge Elements', () => {
 				cy.readFile('cypress/downloads/' + name).should('exist');
 
 				cy.get('#uploadFile').selectFile('cypress/downloads/' + name);
-
 				cy.get('#uploadedFilePath').should('contain.text', name);
 			});
 	});
