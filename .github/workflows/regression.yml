@@ -1,0 +1,40 @@
+
+name: 🧪Pipeline Regression
+run-name: ${{github.actor}}👨🏻‍🔬 triggered Regression in ${{github.ref_name}}
+
+on:
+  push:
+    branches:
+    - QA
+
+jobs:
+  RegressionTesting:
+    runs-on: windows-latest
+
+    steps:
+    - name: 💻Checkout
+      uses: actions/checkout@v4
+
+    - name: 💿Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+
+    - name: 🧬Install All Dependencies
+      run: |
+        npm install
+        npm list
+
+    - name: 🧪Cypress E2E Regression Test on chrome
+      uses: cypress-io/github-action@v4
+      with:
+        browser: chrome
+        command: |
+          npm run regression
+    - name: 📬Generate xml Report  
+      if: always()
+      run: |
+        npm run report:xml
+        
+
