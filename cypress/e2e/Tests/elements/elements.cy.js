@@ -38,10 +38,8 @@ describe('Challenge Elements', () => {
 				const randomNodeIndex = Cypress._.random(count);
 				cy.get('[type=checkbox]').eq(randomNodeIndex).check({ force: true });
 				cy.get('[type=checkbox]').eq(randomNodeIndex).should('be.checked');
-
 				cy.get('[type=checkbox]').eq(0).check({ force: true });
 				cy.get('[type=checkbox]').eq(0).should('be.checked');
-
 				cy.get('[type=checkbox]').eq(randomNodeIndex).uncheck({ force: true });
 				cy.get('[type=checkbox]').eq(randomNodeIndex).should('not.be.checked');
 			});
@@ -122,7 +120,6 @@ describe('Challenge Elements', () => {
 				cy.log(name);
 				cy.get('#downloadButton').click();
 				cy.readFile('cypress/downloads/' + name).should('exist');
-
 				cy.get('#uploadFile').selectFile('cypress/downloads/' + name);
 				cy.get('#uploadedFilePath').should('contain.text', name);
 			});

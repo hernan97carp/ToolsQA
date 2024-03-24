@@ -34,7 +34,6 @@ describe('Cypress Challenge - Widgets', () => {
 				const index = Cypress._.random(colorCount - 1);
 				cy.get('@displayedColors').eq(index).as('selectColor');
 			});
-
 		//another way
 		cy.get('@selectColor')
 			.click()

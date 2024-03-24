@@ -5,7 +5,7 @@
 	"cSpell.language": "en,es",
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
 	"[javascript]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[Typescript]": {
 		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"

@@ -11,7 +11,7 @@
 import 'cypress-file-upload';
 import '@4tw/cypress-drag-drop';
 import 'cypress-downloadfile/lib/downloadFileCommand';
-
+import './Commands/widgets/datePickerCommands.js';
 beforeEach(() => {
 	cy.intercept({ resourceType: /^(xhr|fetch)$/ }, { statusCode: 200, body: { data: 'fake data' } });
 });
