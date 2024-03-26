@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-const { datePicker } = require('../../../support/POM/widgets/date.picker.js');
+const { datePicker } = require('../../../support/POM/widgets/datePicker.Page.js');
 const inputDatePicker = datePicker.datePickerInput;
 const popupCalendar = datePicker.popupCalendar;
 
@@ -26,9 +26,11 @@ describe('Cypress Challenge', () => {
 			});
 	});
 	it('TC2: Verify correct date selection when the user clicks on a random month of the year', () => {
+		//arrange
 		const randomMonth = faker.date.month();
 		let returnedMonth;
 		let valueDatePicker;
+		//act
 		inputDatePicker.selectDate().click();
 		popupCalendar.selectMonth().select(randomMonth);
 		cy.randomNumberMonth().then(randomDay => {

@@ -1,4 +1,4 @@
-const { accordion } = require('../../../support/POM/widgets/accordion.page.js');
+const { accordion } = require('../../../support/POM/widgets/accordion.Page.js');
 const getAccordion = accordion.accordions;
 const { accordionCollapseShow } = accordion.accordionCollapse;
 describe('widgets - accordion', () => {
