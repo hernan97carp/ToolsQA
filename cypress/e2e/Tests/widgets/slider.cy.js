@@ -7,8 +7,7 @@ describe('Slider', () => {
 	const sliderPage = new SliderPage();
 
 	beforeEach(() => {
-		cy.visit('/widgets');
-		sliderPage.clickSlider();
+		cy.visit('/slider');
 	});
 
 	it('slider input type= range utilizando stepUp', () => {

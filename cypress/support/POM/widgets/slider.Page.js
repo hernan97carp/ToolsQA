@@ -1,7 +1,7 @@
 export class SliderPage {
 	constructor() {
 		this.sliderButton = 'Slider';
-		this.sliderInput = 'input[type="range"]';
+
 		this.sliderValue = '#sliderValue';
 	}
 

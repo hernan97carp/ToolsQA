@@ -56,7 +56,9 @@ describe('Challenge Elements', () => {
 				successTexts.push(element.text());
 			})
 			.then(() => {
-				const checkedLabels = labels.map(text => text.toLowerCase().replace(' ', '').replace('.doc', ''));
+				const checkedLabels = labels.map(text =>
+					text.toLowerCase().replace(' ', '').replace('.doc', '')
+				);
 				const displayedTexts = successTexts.map(text => text.toLowerCase());
 				expect(displayedTexts).deep.equal(checkedLabels);
 			});
