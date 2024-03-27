@@ -17,7 +17,7 @@
 		"camelcase": "warn",
 		"linebreak-style": "off",
 		"quotes": ["warn", "single"],
-		"semi": ["warn", "always"],
+		//"semi": ["warn", "always"],
 		"object-curly-spacing": ["warn", "always"]
 	},
 	"globals": {

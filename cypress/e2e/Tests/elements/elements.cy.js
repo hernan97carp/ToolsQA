@@ -3,8 +3,8 @@ import { faker } from '@faker-js/faker';
 // Test Suite
 describe('Challenge Elements', () => {
 	beforeEach(() => {
-cy.toolsQaSession()
-	})
+		cy.toolsQaSession();
+	});
 	it('TEXTBOX - TC1: Should submit form with valid credentials', () => {
 		cy.visit('/text-box');
 		//todo: ARRANGE (preparación y declaración)
@@ -38,10 +38,8 @@ cy.toolsQaSession()
 				const randomNodeIndex = Cypress._.random(count);
 				cy.get('[type=checkbox]').eq(randomNodeIndex).check({ force: true });
 				cy.get('[type=checkbox]').eq(randomNodeIndex).should('be.checked');
-
 				cy.get('[type=checkbox]').eq(0).check({ force: true });
 				cy.get('[type=checkbox]').eq(0).should('be.checked');
-
 				cy.get('[type=checkbox]').eq(randomNodeIndex).uncheck({ force: true });
 				cy.get('[type=checkbox]').eq(randomNodeIndex).should('not.be.checked');
 			});
@@ -58,7 +56,9 @@ cy.toolsQaSession()
 				successTexts.push(element.text());
 			})
 			.then(() => {
-				const checkedLabels = labels.map(text => text.toLowerCase().replace(' ', '').replace('.doc', ''));
+				const checkedLabels = labels.map(text =>
+					text.toLowerCase().replace(' ', '').replace('.doc', '')
+				);
 				const displayedTexts = successTexts.map(text => text.toLowerCase());
 				expect(displayedTexts).deep.equal(checkedLabels);
 			});
@@ -122,7 +122,6 @@ cy.toolsQaSession()
 				cy.log(name);
 				cy.get('#downloadButton').click();
 				cy.readFile('cypress/downloads/' + name).should('exist');
-
 				cy.get('#uploadFile').selectFile('cypress/downloads/' + name);
 				cy.get('#uploadedFilePath').should('contain.text', name);
 			});

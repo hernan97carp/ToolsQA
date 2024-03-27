@@ -25,8 +25,7 @@ async function setupNodeEvents(on, config) {
 }
 
 export default defineConfig({
-	// @Ely: CYPRESS DASHBOARD PARA VER NUESTRAS EJECUCIONES EN LA WEB:
-	projectId: '2pw67q',
+	projectId: '9942hc',
 	downloadsFolder: 'cypress/downloads',
 	// 1280×720 is considered to be the most suitable screen resolution for the desktop website version:
 	viewportWidth: 1920,
@@ -46,9 +45,12 @@ export default defineConfig({
 	video: false,
 	// E2E Testing runner
 	e2e: {
-		experimentalSessionAndOrigen:true,
+		experimentalSessionAndOrigen: true,
 		// Glob pattern to determine what test files to load:
-		specPattern: ['cypress/e2e/cucumber-test/Gherkin/*.feature', 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}'],
+		specPattern: [
+			'cypress/e2e/cucumber-test/Gherkin/*.feature',
+			'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+		],
 		// Use Cypress plugins:
 		setupNodeEvents,
 		baseUrl: 'https://demoqa.com',
@@ -57,5 +59,8 @@ export default defineConfig({
 		allure: true,
 		allureReuseAfterSpec: true,
 		allureResultsPath: 'reports/allure-results',
+		whatTextFilePath: 'cypress/fixtures/data/Widgets/Tabs/tabContentWhat.txt',
+		originTextFilePath: 'cypress/fixtures/data/Widgets/Tabs/tabContentOrigin.txt',
+		useTextFilePath: 'cypress/fixtures/data/Widgets/Tabs/tabContentUse.txt',
 	},
 });

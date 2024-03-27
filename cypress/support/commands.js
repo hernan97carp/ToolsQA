@@ -11,31 +11,27 @@
 import 'cypress-file-upload';
 import '@4tw/cypress-drag-drop';
 import 'cypress-downloadfile/lib/downloadFileCommand';
-
+import './Commands/widgets/datePickerCommands.js';
 beforeEach(() => {
 	cy.intercept({ resourceType: /^(xhr|fetch)$/ }, { statusCode: 200, body: { data: 'fake data' } });
 });
 
-
-
 Cypress.Commands.add('toolsQaSession', () => {
-			cy.session('elementSession', () => {
-			cy.visit('https://demoqa.com/')
-	})
-})
+	cy.session('elementSession', () => {
+		cy.visit('https://demoqa.com/');
+	});
+});
 
 Cypress.Commands.add('getAutoCompletedValues', () => {
 	const autoCompletedValues = [];
-	cy.get('.auto-complete__multi-value__label').each(element => {
-		autoCompletedValues.push(element.text());
-	}).then(()=>{
+	cy.get('.auto-complete__multi-value__label')
+		.each(element => {
+			autoCompletedValues.push(element.text());
+		})
+		.then(() => {
 			return autoCompletedValues;
-
-	})
-
-})
-
-
+		});
+});
 
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
