@@ -35,7 +35,7 @@ describe('Challenge Elements', () => {
 		cy.get('[for^=tree-node]')
 			.its('length')
 			.then(count => {
-				const randomNodeIndex = Cypress._.random(count);
+				const randomNodeIndex = Cypress._.random(count - 1);
 				cy.get('[type=checkbox]').eq(randomNodeIndex).check({ force: true });
 				cy.get('[type=checkbox]').eq(randomNodeIndex).should('be.checked');
 				cy.get('[type=checkbox]').eq(0).check({ force: true });
