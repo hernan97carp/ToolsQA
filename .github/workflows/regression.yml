@@ -3,10 +3,13 @@ name: 🧪Pipeline Regression
 run-name: ${{github.actor}}👨🏻‍🔬 triggered Regression in ${{github.ref_name}}
 
 on:
-  push:
-     branches: [QA]
-  pull_request: 
-     branches: [main]
+    workflow_dispatch: # Este es el evento que activa el flujo de trabajo manualmente
+
+  #push:
+     #    branches: [QA]
+  #pull_request: 
+   #  branches: [main]
+  
 jobs:
   RegressionTesting:
     runs-on: windows-latest

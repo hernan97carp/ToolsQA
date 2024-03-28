@@ -1,26 +1,21 @@
-const { menuItems } = require('../../../support/POM/widgets/menu.Page');
-const { mainItemOne, mainItemTwo, mainItemThree } = menuItems;
+import { MenuPage } from '../../../support/POM/widgets/menu.Page';
 describe('Cypress Challenge Menu', () => {
+	const menuPage = new MenuPage();
 	beforeEach(() => {
 		cy.visit('/menu');
 	});
-
-	// -- Start: Cypress Tests --
-	it('TC1: Ensure that the menu items change their background appearance when the mouse hovers over them, both in the main menu and its sub-items', function () {
-		//mainItemOne.firstMainItem().eq(0).trigger('mouseover').as('mainItemOne');
-		//mainItemTwo.SecondMainItem().eq(1).trigger('mouseover').as('mainItemTwo');
-		//mainItemTwo.secondMainFirstSubItem().eq(1).as('firstSubItem');
-		cy.get('a[href="#"]').eq(1).as('reference');
-		cy.get('@reference', { timeout: 10000 }).trigger('mouseover');
-		g;
-
-		//cy.get('@mainItemOne').contains('Main Item 1');
-		//cy.get('@mainItemTwo').contains('Main Item 2').click();
-		//cy.get('@firstSubItem').contains('Sub Item').click();
-
-		// Write your test case one here
+	it('TC1: Verify the menu sub items', () => {
+		//menuPage.returnSubItems().should('include.text', 'Sub Item');
+		menuPage.returnSubItems(0).should('include.text', 'Sub Item');
+		menuPage.returnSubItems(1).should('include.text', 'Sub Item');
 	});
-	it('This is your test case two title', () => {
-		// Write your test case two here
+	it.only('TC2: Verify the menu sub sub lists', () => {
+		//menuPage.returnSubSubList().should('include.text','Sub Sub Item 1');
+		menuPage.returnSubSubList(0).then(res => {
+			expect(res).is.eq('Sub Sub Item 1');
+		});
+		menuPage.returnSubSubList(1).then(res => {
+			expect(res).is.eq('Sub Sub Item 2');
+		});
 	});
 });
