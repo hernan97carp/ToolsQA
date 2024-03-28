@@ -1,18 +1,16 @@
-class MenuItems {
-	mainItemOne = {
-		firstMainItem: () => cy.get('a[href="#"]'),
-	};
-	mainItemTwo = {
-		SecondMainItem: () => cy.get('a[href="#"]'),
-		secondMainFirstSubItem: () => cy.get('a[href="#"]'),
-		secondMainSecondSubItem: () => cy.get('a[href="#"]'.eq(3)),
-		secondMainSubSubList: () => cy.get('a[href="#"]'.eq(4)),
-		secondMainSubSubItemOne: () => cy.get('a[href="#"]'.eq(5)),
-		secondMainSubSubItemTwo: () => cy.get('a[href="#"]'.eq(6)),
-	};
-	mainItemThree = {
-		thirdMainItem: () => cy.get('a[href="#"]'.eq(7)),
-	};
-}
+export class MenuPage {
+	constructor() {
+		this.mainItems = '[id=nav]>li';
+	}
 
-export const menuItems = new MenuItems();
+	returnSubSubList(i) {
+		cy.get(this.mainItems).children('a').contains('Main Item 2');
+		cy.get(this.mainItems).find('li').as('el').eq(2);
+		return cy.get('@el').find('li').eq(i).invoke('text');
+	}
+
+	returnSubItems(i) {
+		cy.get(this.mainItems).children('a').contains('Main Item 2');
+		return cy.get(this.mainItems).find('li').as('element').eq(i);
+	}
+}
