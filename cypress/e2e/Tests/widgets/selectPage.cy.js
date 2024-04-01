@@ -2,7 +2,7 @@ import { SelectPage } from '../../../support/POM/widgets/select.Page';
 import { optionsValues } from '@data/Widgets/selectPage/optionsValue';
 describe('Cypress Challenge Select Page ', () => {
 	const selectPage = new SelectPage();
-	const selectValue = selectPage.selectValue; // Cambiado de 'get' a 'selectValue' para reflejar el nombre actualizado
+	const selectValue = selectPage.selectValue;
 	const { colorsArray, singleOp } = optionsValues;
 	beforeEach(() => {
 		cy.visit('/select-menu');
@@ -63,6 +63,18 @@ describe('Cypress Challenge Select Page ', () => {
 			})
 			.then(colorReturned => {
 				expect(colorSelected).to.be.equal(colorReturned);
+			});
+	});
+	it.only('TC5: Verify the Standard multi select contains the correct options ', () => {
+		cy.get(selectPage.selectMultiple)
+			.select(['Volvo', 'Saab', 'Opel', 'Audi'])
+			.invoke('text')
+			.then($text => {
+				//This code replaces any lowercase letter followed by an uppercase letter with a comma and a space,
+				// and then removes all whitespace from the resulting string.
+				let separatedText = $text.replace(/([a-z])([A-Z])/g, '$1,$2').replace(/\s*/g, '');
+				let expectResult = ['Volvo', 'Saab', 'Opel', 'Audi'].join(',');
+				expect(separatedText).to.be.equal(expectResult);
 			});
 	});
 });
