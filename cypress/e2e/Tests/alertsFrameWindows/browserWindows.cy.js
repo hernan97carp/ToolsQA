@@ -1,6 +1,6 @@
 import { BrowserWindows } from '../../../support/POM/alertsFrameWindows/browserWindows.Page';
 
-describe('This is your test project title', function () {
+describe('Cypress Challenge Browser Windows', function () {
 	const browserWindowsPage = new BrowserWindows();
 	beforeEach(() => {
 		cy.visit('/browser-windows');
