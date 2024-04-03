@@ -11,7 +11,10 @@ export function removeLogs() {
 	// Comando predeterminado para que no aparezcan los Fetch en el log del Test Runner:
 	const origLog = Cypress.log;
 	Cypress.log = function (opts, ...other) {
-		if (opts.displayName === 'xhr' || (opts.displayName === 'fetch' && opts.url.startsWith('https://'))) {
+		if (
+			opts.displayName === 'xhr' ||
+			(opts.displayName === 'fetch' && opts.url.startsWith('https://'))
+		) {
 			return;
 		}
 		return origLog(opts, ...other);
