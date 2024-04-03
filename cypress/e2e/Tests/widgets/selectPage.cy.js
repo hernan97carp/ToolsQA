@@ -65,7 +65,7 @@ describe('Cypress Challenge Select Page ', () => {
 				expect(colorSelected).to.be.equal(colorReturned);
 			});
 	});
-	it.only('TC5: Verify the Standard multi select contains the correct options ', () => {
+	it('TC5: Verify the Standard multi select contains the correct options ', () => {
 		cy.get(selectPage.selectMultiple)
 			.select(['Volvo', 'Saab', 'Opel', 'Audi'])
 			.invoke('text')
