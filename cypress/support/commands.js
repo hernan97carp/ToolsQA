@@ -7,21 +7,27 @@
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
+
 // ***********************************************
 import 'cypress-file-upload';
 import '@4tw/cypress-drag-drop';
 import 'cypress-downloadfile/lib/downloadFileCommand';
 import './Commands/widgets/datePickerCommands.js';
+import './Commands/nestedFrames/nestedFramesCommands.js';
 beforeEach(() => {
-	cy.intercept({ resourceType: /^(xhr|fetch)$/ }, { statusCode: 200, body: { data: 'fake data' } });
+	cy.intercept(
+		{ resourceType: /^(xhr|fetch)$/ },
+		{ statusCode: 200, body: { data: 'fake data' } }
+	);
 });
-
 Cypress.Commands.add('toolsQaSession', () => {
 	cy.session('elementSession', () => {
 		cy.visit('https://demoqa.com/');
 	});
 });
-
+Cypress.Commands.add('gClick', locator => {
+	cy.get(locator).click({ force: true });
+});
 Cypress.Commands.add('getAutoCompletedValues', () => {
 	const autoCompletedValues = [];
 	cy.get('.auto-complete__multi-value__label')
