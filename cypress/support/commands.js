@@ -14,6 +14,7 @@ import '@4tw/cypress-drag-drop';
 import 'cypress-downloadfile/lib/downloadFileCommand';
 import './Commands/widgets/datePickerCommands.js';
 import './Commands/nestedFrames/nestedFramesCommands.js';
+
 beforeEach(() => {
 	cy.intercept(
 		{ resourceType: /^(xhr|fetch)$/ },
