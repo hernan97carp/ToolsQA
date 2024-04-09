@@ -7,4 +7,5 @@ describe('Cypress Challenge', () => {
 
 	it('This is your test case one title', () => {});
 	it('This is your test case one title', () => {});
+	it('This is your test case one title', () => {});
 });
