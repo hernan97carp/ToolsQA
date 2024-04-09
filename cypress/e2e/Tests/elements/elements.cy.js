@@ -66,6 +66,7 @@ describe('Challenge Elements', () => {
 
 	it('RADIOBUTTON - TC3: Should check radio buttons', () => {
 		//* ARRANGE
+		//arrange
 		const radioYes = 'Yes';
 		const radioImpressive = 'Impressive';
 		const radioNo = 'No';
