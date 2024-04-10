@@ -14,6 +14,7 @@ import '@4tw/cypress-drag-drop';
 import 'cypress-downloadfile/lib/downloadFileCommand';
 import './Commands/widgets/datePickerCommands.js';
 import './Commands/nestedFrames/nestedFramesCommands.js';
+import faker from 'faker';
 beforeEach(() => {
 	cy.intercept(
 		{ resourceType: /^(xhr|fetch)$/ },
@@ -37,6 +38,15 @@ Cypress.Commands.add('getAutoCompletedValues', () => {
 		.then(() => {
 			return autoCompletedValues;
 		});
+});
+
+Cypress.Commands.add('twoNumbersRandom', () => {
+	let numero1 = faker.datatype.number({ min: 0, max: 5 });
+	let numero2 = faker.datatype.number({ min: 0, max: 5 });
+	while (numero1 === numero2) {
+		numero2 = faker.datatype.number({ min: 0, max: 5 });
+	}
+	return [numero1, numero2];
 });
 
 // -- This is a parent command --
