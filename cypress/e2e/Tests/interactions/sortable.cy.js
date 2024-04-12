@@ -1,4 +1,4 @@
-import { Sortable } from '../../../support/POM/intereactions/sortable';
+import { Sortable } from '../../../support/POM/intereactions/sortable.Page';
 describe('Cypress Challenge Sortable', () => {
 	const sortable = new Sortable();
 	const list = sortable.list;
