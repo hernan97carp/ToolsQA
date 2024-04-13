@@ -19,7 +19,8 @@ describe('Cypress Challenge Browser Windows', function () {
 		cy.url().should('include', '/sample');
 	});
 
-	it('New tab', function () {
+	//TRYING TO RESOLVE
+	it('TC2: Verify New tab', function () {
 		browserWindowsPage.clickTabButton();
 		cy.intercept('https://demoqa.com/sample').as('tab');
 		cy.wait('@tab').then(res => {
@@ -27,7 +28,8 @@ describe('Cypress Challenge Browser Windows', function () {
 			expect(res.response.url).to.eq('https://demoqa.com/sample');
 		});
 	});
-	it('New window', () => {
+	//TRYING TO RESOLVE
+	it('TC3: Verify New window', () => {
 		browserWindowsPage.clickWindowButton();
 		cy.intercept('https://demoqa.com/sample').as('window');
 		cy.wait('@window').then(res => {

@@ -5,6 +5,8 @@ const { addCucumberPreprocessorPlugin } = pkg;
 import { createEsbuildPlugin } from '@badeball/cypress-cucumber-preprocessor/esbuild.js';
 import { downloadFile } from 'cypress-downloadfile/lib/addPlugin.js';
 import allureWriter from '@shelex/cypress-allure-plugin/writer';
+import { config as dotenvConfig } from 'dotenv';
+dotenvConfig();
 
 async function setupNodeEvents(on, config) {
 	// This is required for the preprocessor to be able to generate JSON reports after each run, and more,
@@ -21,6 +23,7 @@ async function setupNodeEvents(on, config) {
 	allureWriter(on, config);
 
 	// Make sure to return the config object as it might have been modified by the plugin.
+
 	return config;
 }
 
@@ -56,6 +59,7 @@ export default defineConfig({
 		baseUrl: 'https://demoqa.com',
 	},
 	env: {
+		passwordBooksToolsQA: process.env.PASSWORD_TOOLS_QA,
 		allure: true,
 		allureReuseAfterSpec: true,
 		allureResultsPath: 'reports/allure-results',
