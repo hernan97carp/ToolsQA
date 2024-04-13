@@ -46,6 +46,7 @@
 		"cypress-plugin-steps": "1.1.1",
 		"cypress-recurse": "1.24.0",
 		"cypress-xpath": "2.0.1",
+		"dotenv": "^16.4.5",
 		"eslint": "8.34.0",
 		"eslint-plugin-only-warn": "1.1.0",
 		"faker": "^5.5.3",
