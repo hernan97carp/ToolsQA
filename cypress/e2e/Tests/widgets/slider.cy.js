@@ -10,7 +10,7 @@ describe('Slider', () => {
 		cy.visit('/slider');
 	});
 
-	it('slider input type= range utilizando stepUp', () => {
+	it('TC1: Verify selection of a random value on the slider', () => {
 		const randomRange = faker.datatype.number({ min: 10, max: 100 }).toString();
 		sliderPage.moveSlider(randomRange);
 		sliderPage.returnValueSlider().should('have.value', randomRange);
