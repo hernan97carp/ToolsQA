@@ -1,5 +1,5 @@
 export class Dragabble {
 	constructor() {
-		this.dragabbleBox = '#dragBox';
+		this.dragabbleBoxSimple = '#dragBox';
 	}
 }
