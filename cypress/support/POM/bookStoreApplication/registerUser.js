@@ -7,5 +7,6 @@ export class RegisterUser {
 		this.recaptchaCheckBox = '.recaptcha-checkbox-checkmark';
 		this.registerButton = '#register';
 		this.verifyReCaptcha = '#output';
+		this.messageErrorFirstName = 'input[placeholder="First Name"].is-invalid.form-control';
 	}
 }
