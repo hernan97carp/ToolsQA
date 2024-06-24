@@ -60,6 +60,8 @@ export default defineConfig({
 	},
 	env: {
 		passwordBooksToolsQA: process.env.PASSWORD_TOOLS_QA,
+		usernameLogin: process.env.USERNAME_TOOLS_QA_LOGIN,
+		passwordLogin: process.env.PASSWORD_TOOLS_QA_LOGIN,
 		allure: true,
 		allureReuseAfterSpec: true,
 		allureResultsPath: 'reports/allure-results',
