@@ -17,14 +17,21 @@
 		}
 	},
 	"exclude": ["node_modules"],
-	"reporterEnabled": "spec, mocha-junit-reporter, mochawesome",
-	"mochaJunitReporterReporterOptions": {
-		"mochaFile": "reports/test-results.xml",
-		"toConsole": false,
-		"outputs": true,
-		"testCaseSwitchClassnameAndName": true
-	},
-	"mochawesomeReporterReporterOptions": {
-		"mochaFile": "mochawesome.json"
+	"reporter": "cypress-multi-reporters",
+	"reporterOptions": {
+		"reporterEnabled": "spec,mocha-junit-reporter,mochawesome",
+		"mochaJunitReporterReporterOptions": {
+			"mochaFile": "reports/test-results.xml",
+			"toConsole": false,
+			"outputs": true,
+			"testCaseSwitchClassnameAndName": true
+		},
+		"mochawesomeReporterOptions": {
+			"reportDir": "mochawesome-report",
+			"overwrite": false,
+			"html": true,
+			"json": true,
+			"quiet": true // Opcional: para suprimir la salida de consola de Mochawesome
+		}
 	}
 }

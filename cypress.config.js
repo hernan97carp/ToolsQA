@@ -6,6 +6,8 @@ import { createEsbuildPlugin } from '@badeball/cypress-cucumber-preprocessor/esb
 import { downloadFile } from 'cypress-downloadfile/lib/addPlugin.js';
 import allureWriter from '@shelex/cypress-allure-plugin/writer';
 import { config as dotenvConfig } from 'dotenv';
+import multiReporters from 'cypress-multi-reporters'; // Importar como default
+
 dotenvConfig();
 
 async function setupNodeEvents(on, config) {
@@ -20,10 +22,10 @@ async function setupNodeEvents(on, config) {
 			plugins: [createEsbuildPlugin(config)],
 		})
 	);
+
 	allureWriter(on, config);
 
 	// Make sure to return the config object as it might have been modified by the plugin.
-
 	return config;
 }
 
@@ -40,7 +42,19 @@ export default defineConfig({
 	// multi-reporters: one report.xml + mochawesome.json per file.
 	reporter: 'cypress-multi-reporters',
 	reporterOptions: {
-		configFile: 'jsconfig.json',
+		reporters: {
+			mochaJunitReporter: multiReporters.mochaJunitReporter, // Acceder al export por defecto
+			mochawesome: {
+				reporterOptions: {
+					reportDir: 'mochawesome-report', // Directorio donde se generan los reportes de mochawesome
+					overwrite: false, // No sobrescribir reportes existentes
+					html: true, // Generar reporte HTML
+					json: true, // Generar reporte JSON
+					quiet: true, // Suprimir la salida de consola de mochawesome (opcional)
+				},
+				reportFilename: 'mochawesome.json', // Nombre del archivo JSON de reporte
+			},
+		},
 	},
 	// Number of times to retry a failed test. If a number is set, tests will retry in both runMode and openMode:
 	retries: process.env.CI ? 2 : 0,
