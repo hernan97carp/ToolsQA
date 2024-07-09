@@ -5,6 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node server.js",
+		"test:mocha":"cypress run --reporter mocha-junit-reporter,mochawesome",
+		  "test:ci": "cypress run --reporter mocha-junit-reporter,mochawesome",
+		"headless": "cypress run --browser chrome",
 		"test": "cypress open",
 		"rm:reports": "rm reports/* || true",
 		"file": "cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=jsconfig.json --record --key b6bde345-a36c-4fab-ad8c-cddc065d2cba --spec",
